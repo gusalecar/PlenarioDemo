@@ -21,7 +21,7 @@
 @foreach (var persona in Model)
 {
     <li class="list-group-item">
-        @persona.Nombre
+        @persona.Nombre, Fecha de nacimiento: @persona.FechaNacimiento.ToString("d/M/yyyy"), Credito maximo: @persona.CreditoMaximo
         <a class="btn btn-primary" asp-controller="Telefonos" asp-action="Index" asp-route-id="@persona.PersonaId">Ver telefonos</a>
         <a class="btn btn-primary" asp-action="Edit" asp-route-id="@persona.PersonaId">Editar</a>
         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@persona.PersonaId">Eliminar</a>

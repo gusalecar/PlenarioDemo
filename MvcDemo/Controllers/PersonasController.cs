@@ -53,6 +53,7 @@ namespace MvcDemo.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Persona persona)
         {
+            ModelState.Remove(nameof(persona.Telefonos));
             if (ModelState.IsValid)
             {
                 context.Personas.Update(persona);

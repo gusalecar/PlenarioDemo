@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Data.Models.Persona>
+
+@{
+    ViewData["Title"] = "Personas";
+}
+
+<h1>Personas</h1>
+
+<a class="btn btn-primary" asp-action="Create">Crear persona</a>
+
+@using (Html.BeginForm())
+{
+    <p class="mt-2">
+        Buscar por nombre: @Html.TextBox("SearchString", null, new { @class = "form-control my-2" })
+        <input class="btn btn-primary" type="submit" value="Buscar" />
+        <a class="btn btn-primary" asp-action="Index">Reset</a>
+    </p>
+}
+
+<ul class="list-group mt-2">
+@foreach (var persona in Model)
+{
+    <li class="list-group-item">
+        @persona.Nombre
+        <a class="btn btn-primary" asp-controller="Telefonos" asp-action="Index" asp-route-id="@persona.PersonaId">Ver telefonos</a>
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@persona.PersonaId">Editar</a>
+        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@persona.PersonaId">Eliminar</a>
+    </li>
+}
+</ul>

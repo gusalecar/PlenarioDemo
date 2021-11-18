@@ -1,0 +1,17 @@
+﻿@model Data.Models.Telefono
+
+@{
+    ViewData["Title"] = "Personas";
+}
+
+<h1>Eliminar telefono</h1>
+
+<form asp-action="Delete" method="post" class="my-2">
+    @Html.HiddenFor(model => Model.TelefonoId)
+    @Html.HiddenFor(model => Model.PersonaId)
+    <p>Seguro desea eliminar el numero @Model.Numero?</p>
+
+    <button class="btn btn-danger mt-2" type="submit">Eliminar</button>
+</form>
+
+<a class="btn btn-primary" asp-action="Index" asp-route-id="@Model.PersonaId">Volver</a>

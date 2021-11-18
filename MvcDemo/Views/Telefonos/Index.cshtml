@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Data.Models.Telefono>
+
+@{
+    ViewData["Title"] = "Personas";
+}
+
+<h1>Telefonos</h1>
+
+<p>Telefonos de @ViewData["Nombre"]</p>
+
+<a class="btn btn-primary" asp-action="Create" asp-route-id="@ViewData["PersonaId"]">Crear telefono</a>
+
+<ul class="list-group my-2">
+@foreach (var telefono in Model)
+{
+    <li class="list-group-item">
+        @telefono.Numero
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@telefono.TelefonoId">Editar</a>
+        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@telefono.TelefonoId">Eliminar</a>
+    </li>
+}
+</ul>
+
+<a class="btn btn-primary" asp-controller="Personas" asp-action="Index">Volver</a>

@@ -1,0 +1,16 @@
+﻿@model Data.Models.Persona
+
+@{
+    ViewData["Title"] = "Personas";
+}
+
+<h1>Eliminar persona</h1>
+
+<form asp-action="Delete" method="post" class="my-2">
+    @Html.HiddenFor(model => Model.PersonaId)
+    <p>Seguro desea eliminar a @Model.Nombre?</p>
+
+    <button class="btn btn-danger" type="submit">Eliminar</button>
+</form>
+
+<a class="btn btn-primary" asp-action="Index">Volver</a>

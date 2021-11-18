@@ -1,0 +1,22 @@
+﻿@model Data.Models.Telefono
+
+@{
+    ViewData["Title"] = "Personas";
+}
+
+<h1>Editar telefono</h1>
+
+<form asp-action="Edit" method="post" class="my-2">
+    @Html.HiddenFor(model => Model.TelefonoId)
+    @Html.HiddenFor(model => Model.PersonaId)
+
+    <div class="form-group">
+        <label>Numero</label>
+        <input type="number" asp-for="Numero" class="form-control" />
+        <span asp-validation-for="Numero" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-primary mt-2" type="submit">Guardar</button>
+</form>
+
+<a class="btn btn-primary" asp-action="Index" asp-route-id="@Model.PersonaId">Volver</a>

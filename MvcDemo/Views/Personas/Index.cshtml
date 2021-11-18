@@ -17,14 +17,28 @@
     </p>
 }
 
-<ul class="list-group mt-2">
+<table class="table mt-2">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha de nacimiento</th>
+            <th>Credito maximo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
 @foreach (var persona in Model)
 {
-    <li class="list-group-item">
-        @persona.Nombre, Fecha de nacimiento: @persona.FechaNacimiento.ToString("d/M/yyyy"), Credito maximo: @persona.CreditoMaximo
-        <a class="btn btn-primary" asp-controller="Telefonos" asp-action="Index" asp-route-id="@persona.PersonaId">Ver telefonos</a>
-        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@persona.PersonaId">Editar</a>
-        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@persona.PersonaId">Eliminar</a>
-    </li>
+        <tr>
+            <td>@persona.Nombre</td>
+            <td>@persona.FechaNacimiento.ToString("d/M/yyyy")</td>
+            <td>@persona.CreditoMaximo</td>
+            <td>
+                <a class="btn btn-primary" asp-controller="Telefonos" asp-action="Index" asp-route-id="@persona.PersonaId">Ver telefonos</a>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@persona.PersonaId">Editar</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@persona.PersonaId">Eliminar</a>
+            </td>
+        </tr>
 }
-</ul>
+    </tbody>
+</table>

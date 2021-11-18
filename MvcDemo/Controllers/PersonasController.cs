@@ -19,7 +19,8 @@ namespace MvcDemo.Controllers
             if (!string.IsNullOrWhiteSpace(searchString))
             {
                 return View(
-                    await context.Personas.Where(p => p.Nombre.Contains(searchString)).ToListAsync());
+                    await context.Personas.Where(
+                        p => p.Nombre.ToLower().Contains(searchString.ToLower())).ToListAsync());
             }
             else
             {

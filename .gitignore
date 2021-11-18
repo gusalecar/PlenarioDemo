@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 Demo.db
+Demo.db-shm
+Demo.db-wal
